@@ -1,0 +1,114 @@
+/* 1. GRUP SEÇİCİ (Ödev gereksinimi: h1, h2, p gibi etiketleri birlikte seçer) */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    padding: 40px;
+}
+
+.main-container {
+    max-width: 950px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* 2. HİYERARŞİK SEÇİCİ (Ödev gereksinimi: .top-nav ul li gibi) */
+.top-nav {
+    padding: 15px 25px;
+    text-align: right;
+    border-bottom: 1px solid #eee;
+}
+
+.top-nav ul li {
+    display: inline-block; /* Menüyü yatay yapar */
+    margin-left: 15px;
+}
+
+.top-nav ul li a {
+    text-decoration: none;
+    color: #555;
+    padding: 6px 12px;
+    font-size: 14px;
+    transition: background 0.3s; /* Hover efekti geçişi */
+}
+
+/* Hover Efekti */
+.top-nav ul li a:hover {
+    background-color: #8da2d4;
+    color: white;
+    border-radius: 4px;
+}
+
+.active-link {
+    background-color: #8da2d4;
+    color: white !important;
+    border-radius: 4px;
+}
+
+/* Sayfa Header Alanı */
+.page-header {
+    padding: 30px 25px;
+}
+
+.page-header h1 {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.page-header p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* İki Sütunlu Düzen */
+.content-flex {
+    padding: 0 25px 30px 25px;
+}
+
+.box-left, .box-right {
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box; /* Padding'in genişliği bozmasını engeller */
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.box-left {
+    width: 58%;
+    background-color: #fff4d9; /* Görseldeki sarı ton */
+    border: 1px solid #f2e1b1;
+    margin-right: 2%;
+}
+
+.box-right {
+    width: 38%;
+    background-color: #e3f2fd; /* Görseldeki mavi ton */
+    border: 1px solid #c5dcf0;
+}
+
+/* Hiyerarşik Metin Düzenleme */
+.box-left p, .box-right p {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.7; /* Ödev gereksinimi: line-height */
+    margin-bottom: 15px;
+    text-align: left; /* Ödev gereksinimi: text-align */
+}
+
+/* Footer */
+.page-footer {
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    border-top: 1px solid #eee;
+}
