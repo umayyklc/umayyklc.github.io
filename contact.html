@@ -3,6 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <title>İletişim - Emine Umay Kılıç</title>
+    <style>
+        /* CSS GEREKSİNİMLERİ */
+        .contact-container {
+            width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fdfdfd;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            font-family: sans-serif;
+        }
+
+        .contact-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* Form Elemanları Tasarımı */
+        .contact-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .contact-container input, 
+        .contact-container select, 
+        .contact-container textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Padding'in genişliği bozmaması için */
+        }
+
+        /* Gruplanmış Alanlar (Radyo ve Checkbox) */
+        .form-group {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        /* Buton Tasarımları */
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-submit {
+            flex: 1;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .btn-reset {
+            flex: 1;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .btn-submit:hover { background-color: #0056b3; }
+        .btn-reset:hover { background-color: #c82333; }
+    </style>
 </head>
 <body>
 
@@ -41,6 +118,58 @@
         <p>Evet, özellikle eğitim ve açık kaynak projelerinde iş birliklerine açığım.</p>
     </section>
 
+    <hr>
+
+    <div class="contact-container">
+        <h2>Detaylı İletişim Formu</h2>
+        <form action="#" method="post">
+            
+            <label for="name">Ad Soyad:</label>
+            <input type="text" id="name" name="name" placeholder="Örn: Asaf Karataş" required>
+
+            <label for="email">E-posta Adresi:</label>
+            <input type="email" id="email" name="email" placeholder="ornek@mail.com" required>
+
+            <label for="password">Başvuru Takip Şifresi:</label>
+            <input type="password" id="password" name="password" placeholder="Şifrenizi girin">
+
+            <label>İletişim Tercihi:</label>
+            <div class="form-group">
+                <input type="radio" id="pref-email" name="preference" value="email" style="width: auto; margin-bottom: 5px;"> 
+                <label style="display: inline;" for="pref-email">Bana e-posta ile ulaşın</label><br>
+                <input type="radio" id="pref-phone" name="preference" value="phone" style="width: auto; margin-bottom: 5px;"> 
+                <label style="display: inline;" for="pref-phone">Bana telefonla ulaşın</label>
+            </div>
+
+            <label>İlgi Alanları / Yetenekler:</label>
+            <div class="form-group">
+                <input type="checkbox" id="html" name="skill" value="html" style="width: auto; margin-bottom: 5px;"> <label style="display: inline;" for="html">HTML</label><br>
+                <input type="checkbox" id="css" name="skill" value="css" style="width: auto; margin-bottom: 5px;"> <label style="display: inline;" for="css">CSS</label><br>
+                <input type="checkbox" id="algo" name="skill" value="algo" style="width: auto; margin-bottom: 5px;"> <label style="display: inline;" for="algo">Algoritma</label>
+            </div>
+
+            <label for="subject">Konu:</label>
+            <select id="subject" name="subject">
+                <option value="">Lütfen bir konu seçin...</option>
+                <option value="is">İş Teklifi</option>
+                <option value="soru">Soru</option>
+                <option value="feedback">Geri Bildirim</option>
+            </select>
+
+            <label for="file">Özgeçmiş (CV) veya Fotoğraf Yükle:</label>
+            <input type="file" id="file" name="file">
+
+            <label for="message">Mesajınız:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Detaylı mesajınızı buraya yazabilirsiniz..."></textarea>
+
+            <div class="button-group">
+                <button type="submit" class="btn-submit">Gönder</button>
+                <button type="reset" class="btn-reset">Temizle</button>
+            </div>
+
+        </form>
+    </div>
+
     <p><a href="index.html">← Ana sayfaya geri dön</a></p>
 </main>
 
@@ -51,5 +180,4 @@
 </footer>
 
 </body>
-
 </html>
