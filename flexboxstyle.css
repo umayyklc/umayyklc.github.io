@@ -13,24 +13,24 @@
     height: 100vh;
     width: 100%;
     background-color: #f4f4f4;
-    overflow: hidden; /* Sayfanın dışarı taşmasını engeller */
+    overflow: hidden; /* Dışarı taşmayı engeller, 100vh'ı korur */
 }
 
-/* --- ORTAK BUTON VE ETKİLEŞİM EFEKTLERİ --- */
+/* --- ORTAK EFEKTLER --- */
 button, .upload-label {
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 button:active, .upload-label:active {
-    transform: scale(0.97); /* Tıklanma hissi */
+    transform: scale(0.97);
 }
 
 /* --- 1) NAVBAR (10vh) --- */
 .navbar {
     height: 10vh;
     background-color: #ffffff;
-    border-bottom: 2px solid #2d5a27; /* Yeşil alt çizgi */
+    border-bottom: 2px solid #2d5a27;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -56,7 +56,7 @@ button:active, .upload-label:active {
 }
 
 .nav-links a:hover {
-    color: #ff8c00; /* Turuncu hover */
+    color: #ff8c00;
 }
 
 /* --- 2) HERO BÖLÜMÜ (30vh) --- */
@@ -65,7 +65,7 @@ button:active, .upload-label:active {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: stretch; /* Ödev kuralı: stretch */
+    align-items: stretch; /* Ödev Kuralı */
     padding: 20px 5%;
     background-color: #fff;
     gap: 20px;
@@ -80,13 +80,13 @@ button:active, .upload-label:active {
 
 .hero-title {
     color: #2d5a27;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .hero-divider {
     height: 2px;
     background-color: #eee;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     width: 80%;
 }
 
@@ -99,7 +99,6 @@ button:active, .upload-label:active {
     width: fit-content;
 }
 
-/* GÖRSEL SEÇME ALANI (Upload Area) */
 .hero-image-placeholder {
     flex: 1;
     border: 2px dashed #2d5a27;
@@ -108,6 +107,7 @@ button:active, .upload-label:active {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .upload-label {
@@ -119,18 +119,15 @@ button:active, .upload-label:active {
     align-items: center;
     color: #2d5a27;
     gap: 10px;
-}
-
-.hero-image-placeholder:hover {
-    background-color: #f0fdf4;
-    border-color: #ff8c00;
+    text-align: center;
+    padding: 10px;
 }
 
 /* --- 3) KARTLAR BÖLÜMÜ (30vh) --- */
 .cards-section {
     height: 30vh;
-    padding: 10px 5%;
-    background-color: #e8f5e9; /* Çok açık yeşil arka plan */
+    padding: 15px 5%;
+    background-color: #e8f5e9;
     display: flex;
     flex-direction: column;
 }
@@ -139,35 +136,48 @@ button:active, .upload-label:active {
     font-size: 1.1rem;
     margin-bottom: 10px;
     color: #333;
+    font-weight: bold;
 }
 
 .cards-wrapper {
     display: flex;
-    flex-wrap: wrap; /* Ödev kuralı: wrap */
-    gap: 10px;
+    flex-wrap: wrap; /* Ödev Kuralı: Sığmayan kartlar aşağı kayar */
+    gap: 15px;
     flex: 1;
+    overflow-y: auto; /* Kartlar 30vh alanına sığmazsa kaydırma çubuğu çıkar */
+    padding-bottom: 10px;
 }
 
 .card {
-    flex: 1 1 150px;
+    /* Kartların 3 kolon düzeninde durması için: */
+    flex: 1 1 calc(33.333% - 15px); 
+    min-width: 180px; 
     background: white;
-    border-radius: 5px;
-    border-bottom: 3px solid #ff8c00;
-    padding: 10px;
+    border-radius: 8px;
+    border-bottom: 4px solid #ff8c00;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card-divider {
+    height: 1px;
+    background-color: #eee;
+    width: 100%;
+    margin: 8px 0;
 }
 
 .card-btn {
     background-color: #2d5a27;
     color: white;
     border: none;
-    padding: 5px 15px;
-    border-radius: 3px;
-    margin-top: 5px;
+    padding: 6px 15px;
+    border-radius: 4px;
+    font-size: 0.85rem;
 }
 
 /* --- 4) FLEX GROW UYGULAMA (20vh) --- */
@@ -180,7 +190,7 @@ button:active, .upload-label:active {
 
 .grow-boxes-wrapper {
     display: flex;
-    align-items: stretch; /* Ödev kuralı: stretch */
+    align-items: stretch; /* Ödev Kuralı */
     gap: 10px;
     flex: 1;
 }
@@ -192,6 +202,8 @@ button:active, .upload-label:active {
     align-items: center;
     color: white;
     font-weight: bold;
+    text-align: center;
+    padding: 10px;
 }
 
 /* Flex-Grow Oranları (1-2-1) */
@@ -206,10 +218,11 @@ button:active, .upload-label:active {
 .grow-btn {
     background-color: rgba(255, 255, 255, 0.9);
     border: none;
-    padding: 4px 10px;
-    margin-top: 5px;
+    padding: 5px 12px;
+    margin-top: 8px;
     font-size: 0.8rem;
-    border-radius: 3px;
+    border-radius: 4px;
+    color: #333;
 }
 
 /* --- 5) FOOTER (10vh) --- */
