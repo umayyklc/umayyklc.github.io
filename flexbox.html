@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flexbox Lab Ödevi</title>
+    <title>Flexbox Lab Ödevi - Umay</title>
     <link rel="stylesheet" href="flexboxstyle.css">
 </head>
 <body>
@@ -12,7 +12,8 @@
         <nav class="navbar">
             <div class="logo">LOGO</div>
             <ul class="nav-links">
-                <li><a href="index.html">Ana Sayfa</a></li> <li><a href="#">Hakkında</a></li>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="#">Hakkında</a></li>
                 <li><a href="#">Dersler</a></li>
                 <li><a href="#">İletişim</a></li>
             </ul>
@@ -25,55 +26,56 @@
                 <div class="hero-divider"></div>
                 <button class="hero-btn">Buton</button>
             </div>
+            
             <div class="hero-image-placeholder">
-    <label for="dosya-secici" class="upload-label">
-        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#2d5a27" stroke-width="2">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-            <circle cx="8.5" cy="8.5" r="1.5"/>
-            <polyline points="21 15 16 10 5 21"/>
-        </svg>
-        <span>Görsel Seçmek İçin Tıklayın</span>
-        <input type="file" id="dosya-secici" accept="image/*" style="display: none;">
-    </label>
-</div>
+                <label for="dosya-secici" class="upload-label">
+                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Görsel Seçmek İçin Tıklayın</span>
+                    <input type="file" id="dosya-secici" accept="image/*" style="display: none;">
+                </label>
+            </div>
         </section>
 
         <section class="cards-section">
             <h2 class="section-title">Kartlar Bölümü</h2>
             <div class="cards-wrapper">
                 <div class="card">
-                    <h3 class="card-title">Kart Başlığı</h3>
-                    <p class="card-text">Kısa açıklama</p>
+                    <h3>Kart Başlığı</h3>
+                    <p>Kısa açıklama</p>
                     <div class="card-divider"></div>
                     <button class="card-btn">Buton</button>
                 </div>
                 <div class="card">
-                    <h3 class="card-title">Kart Başlığı</h3>
-                    <p class="card-text">Kısa açıklama</p>
+                    <h3>Kart Başlığı</h3>
+                    <p>Kısa açıklama</p>
                     <div class="card-divider"></div>
                     <button class="card-btn">Buton</button>
                 </div>
                 <div class="card">
-                    <h3 class="card-title">Kart Başlığı</h3>
-                    <p class="card-text">Kısa açıklama</p>
+                    <h3>Kart Başlığı</h3>
+                    <p>Kısa açıklama</p>
                     <div class="card-divider"></div>
                     <button class="card-btn">Buton</button>
                 </div>
                 <div class="card">
-                    <h3 class="card-title">Kart Başlığı</h3>
-                    <p class="card-text">Kısa açıklama</p>
+                    <h3>Kart Başlığı</h3>
+                    <p>Kısa açıklama</p>
                     <div class="card-divider"></div>
                     <button class="card-btn">Buton</button>
                 </div>
                 <div class="card">
-                    <h3 class="card-title">Kart Başlığı</h3>
-                    <p class="card-text">Kısa açıklama</p>
+                    <h3>Kart Başlığı</h3>
+                    <p>Kısa açıklama</p>
                     <div class="card-divider"></div>
                     <button class="card-btn">Buton</button>
                 </div>
                 <div class="card">
-                    <h3 class="card-title">Kart Başlığı</h3>
-                    <p class="card-text">Kısa açıklama</p>
+                    <h3>Kart Başlığı</h3>
+                    <p>Kısa açıklama</p>
                     <div class="card-divider"></div>
                     <button class="card-btn">Buton</button>
                 </div>
@@ -102,9 +104,23 @@
         </section>
 
         <footer class="footer">
-            <p>&copy; 2026 - Temel Flexbox Örneği</p>
+            <p>© 2026 - Temel Flexbox Örneği | Umay Kılıç</p>
         </footer>
     </div>
+
+    <script>
+        document.getElementById('dosya-secici').addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const label = document.querySelector('.upload-label');
+                    label.innerHTML = `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:cover; border-radius:6px;">`;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 
 </body>
 </html>
