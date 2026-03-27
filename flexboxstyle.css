@@ -1,74 +1,100 @@
-/* Genel Sıfırlama */
+/* --- GENEL SIFIRLAMA --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Ana Yapı: 100vh Zorunluluğu */
+/* --- ANA KAPSAYICI (100vh) --- */
 .wrapper {
     display: flex;
     flex-direction: column;
     height: 100vh;
     width: 100%;
-    overflow: hidden; /* Taşmaları engellemek için */
+    background-color: #f0f0f0;
+    overflow: hidden; /* Ekran sığması zorunluluğu */
 }
 
-/* --- Ortak Buton Efektleri --- */
+/* --- ORTAK BUTON EFEKTLERİ --- */
 button {
     cursor: pointer;
-    transition: all 0.2s ease;
     border: none;
     border-radius: 4px;
+    transition: all 0.2s ease;
     font-weight: bold;
 }
 
 button:hover {
-    filter: brightness(1.2); /* Üzerine gelince parlar */
-    transform: scale(1.05); /* Çok hafif büyür */
+    filter: brightness(1.1);
 }
 
 button:active {
-    transform: scale(0.95); /* Tıklandığında içeri göçer (Basılma hissi) */
+    transform: scale(0.96); /* Tıklanma hissi */
 }
 
-/* 1. Navbar */
+/* --- SEKSİYON BAŞLIKLARI VE BÖLÜCÜLER --- */
+.section-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.hero-divider, .card-divider {
+    height: 2px;
+    background-color: #eee;
+    margin: 10px 0;
+    width: 100%;
+}
+
+/* =========================================
+   1) NAVBAR (10vh)
+   ========================================= */
 .navbar {
     height: 10vh;
-    background-color: #2e7d32; /* Yeşil */
-    color: white;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
 }
 
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2d5a27; /* Yeşil */
+}
+
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 25px;
 }
 
 .nav-links a {
-    color: white;
     text-decoration: none;
-    transition: color 0.3s;
+    color: #555;
+    font-weight: 500;
 }
 
 .nav-links a:hover {
-    color: #ff9800; /* Turuncu hover */
+    color: #ff8c00; /* Turuncu Hover */
 }
 
-/* 2. Hero Bölümü */
+/* =========================================
+   2) HERO (30vh)
+   ========================================= */
 .hero {
     height: 30vh;
+    background-color: #fbfbfb;
+    border-bottom: 1px solid #eee;
+    padding: 20px 40px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: stretch;
-    padding: 20px 40px;
-    background-color: #f5f5f5;
+    align-items: stretch; /* Orijinal taslaktaki stretch kuralı */
     gap: 30px;
 }
 
@@ -79,61 +105,101 @@ button:active {
     justify-content: center;
 }
 
-.main-btn {
-    background-color: #ff9800;
+.hero-title {
+    font-size: 1.8rem;
+    color: #2d5a27; /* Yeşil */
+    margin-bottom: 5px;
+}
+
+.hero-text {
+    font-size: 1rem;
+    color: #777;
+}
+
+.hero-btn {
+    background-color: #ff8c00; /* Turuncu */
     color: white;
     padding: 10px 25px;
     width: fit-content;
-    margin-top: 15px;
 }
 
-.hero-image {
+.hero-image-placeholder {
     flex: 1;
-    background-color: #ddd;
+    background-color: #eee;
+    border: 2px solid #ddd;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px dashed #bbb;
 }
 
-/* 3. Kartlar Bölümü */
-.cards-container {
+/* =========================================
+   3) KARTLAR BÖLÜMÜ (30vh)
+   ========================================= */
+.cards-section {
     height: 30vh;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
     padding: 15px 40px;
-    background-color: #e8f5e9;
-    overflow-y: auto;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.cards-wrapper {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap; /* Orijinal kural */
+    gap: 15px;
+    overflow-y: auto; /* Kartlar sığmazsa kaydırılabilir */
 }
 
 .card {
-    flex: 1 1 150px;
+    flex: 1 1 calc(33.333% - 15px); /* 3 kolonlu yapı */
+    min-width: 150px;
     background: white;
-    border-bottom: 4px solid #ff9800;
-    padding: 10px;
+    border: 1px solid #eee;
+    border-bottom: 3px solid #ff8c00; /* Turuncu Detay */
+    padding: 15px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
-.card-btn {
-    background-color: #4caf50;
-    color: white;
-    padding: 5px 15px;
-    margin-top: 8px;
-    font-size: 0.8rem;
+.card-title {
+    font-size: 1.1rem;
+    color: #333;
 }
 
-/* 4. Flex Grow Bölümü */
+.card-text {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.card-btn {
+    background-color: #2d5a27; /* Yeşil */
+    color: white;
+    padding: 6px 18px;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   4) FLEX GROW UYGULAMA (20vh)
+   ========================================= */
 .grow-section {
     height: 20vh;
+    padding: 15px 40px;
+    background-color: #fbfbfb;
+    border-bottom: 1px solid #eee;
     display: flex;
-    align-items: stretch;
-    padding: 10px 40px;
-    gap: 10px;
+    flex-direction: column;
+}
+
+.grow-boxes-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: stretch; /* Orijinal kural */
+    gap: 15px;
 }
 
 .grow-box {
@@ -145,24 +211,33 @@ button:active {
     padding: 10px;
 }
 
-.box-green-light { flex-grow: 1; background-color: #81c784; }
-.box-orange      { flex-grow: 2; background-color: #ff9800; }
-.box-green-dark  { flex-grow: 1; background-color: #388e3c; }
+/* flex-grow kuralları */
+.grow-1 { flex-grow: 1; }
+.grow-2 { flex-grow: 2; }
+
+/* Renkler (Orijinal iskeletin renklerine sadık kalınarak) */
+.color-green-light { background-color: #81c784; } /* Açık Yeşil */
+.color-orange      { background-color: #ff8c00; } /* Koyu Turuncu */
+.color-orange-light { background-color: #ffcc80; } /* Açık Turuncu */
 
 .grow-btn {
     background-color: rgba(255, 255, 255, 0.9);
     color: #333;
-    padding: 5px 12px;
-    margin-top: 5px;
+    padding: 5px 15px;
+    margin-top: 8px;
+    font-size: 0.8rem;
 }
 
-/* 5. Footer */
+/* =========================================
+   5) FOOTER (10vh)
+   ========================================= */
 .footer {
     height: 10vh;
-    background-color: #eee;
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #666;
+    color: #999;
+    font-size: 0.9rem;
     border-top: 1px solid #ddd;
 }
