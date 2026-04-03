@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB: CSS Position Etkinliği</title>
+    <style>
+        /* Genel Sayfa Ayarları */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f8; /* Görseldeki gibi açık gri arka plan */
+            min-height: 120vh; /* Sayfanın scroll edilebilmesi için yüksekliği artırdık */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* 1. FIXED ÖĞELER (Sabit Butonlar) */
+        .btn-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #2563eb;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease; /* Etkileşim 1: Transition */
+            z-index: 100;
+        }
+
+        .btn-help {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #7c3aed;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        /* Buton Hover Etkileşimleri (Büyüme ve Renk Değişimi) */
+        .btn-home:hover, .btn-help:hover {
+            cursor: pointer;
+            transform: scale(1.1); /* Büyüme efekti */
+        }
+        
+        .btn-home:hover {
+            background-color: #1e40af; /* Daha koyu mavi */
+        }
+
+        .btn-help:hover {
+            background-color: #5b21b6; /* Daha koyu mor */
+        }
+
+        /* 2. RELATIVE KAPSAYICI (Ana Kart) */
+        .card-container {
+            position: relative;
+            width: 450px;
+            background: linear-gradient(135deg, #e0e7ff, #ebdff7); /* Görseldeki degrade geçiş */
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-top: 50px;
+            z-index: 10;
+        }
+
+        /* Kart İçeriği */
+        .card-container h2 {
+            margin-top: 10;
+            color: #1f2937;
+            font-size: 24px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .card-container p {
+            color: #4b5563;
+            line-height: 1.6;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* 3. ABSOLUTE ÖĞELER */
+        /* Ücretsiz Rozeti (Taşan Yapı) */
+        .badge-free {
+            position: absolute;
+            top: -15px; /* Kartın üstünden dışarı taşar */
+            left: -15px; /* Kartın solundan dışarı taşar */
+            background-color: #fef08a;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .badge-free:hover {
+            transform: scale(1.05);
+        }
+
+        /* Tarih Rozeti */
+        .badge-date {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #dcfce7;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: bold;
+            z-index: 20;
+        }
+
+        /* Dekoratif Yuvarlak (Z-index örneği) */
+        .circle-decor {
+            position: absolute;
+            right: 0;
+            bottom: 30px;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            z-index: 1; /* Yazıların altında, konum kutusunun arkasında kalır */
+        }
+
+        /* Konum Kutusu (Üst üste binme / Z-index) */
+        .location-box {
+            position: absolute;
+            right: -20px; /* Karttan sağa doğru hafif taşar */
+            bottom: 80px;
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            z-index: 2; /* Dekoratif yuvarlağın üstünde kalması için */
+        }
+
+        /* Son Kayıt Rozeti (Zıplama Animasyonlu) */
+        .badge-last {
+            position: absolute;
+            bottom: -15px; /* Kartın altından dışarı taşar */
+            right: 30px;
+            background-color: #ffedd5;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 13px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            animation: bounce 1s infinite alternate; /* Etkileşim 2: Keyframes Animasyonu */
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        /* Zıplama Animasyonu */
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Alt Bilgi */
+        footer {
+            margin-top: 60px;
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="btn-home">Ana Sayfaya Dön</a>
+
+    <div class="card-container">
+        
+        <div class="badge-free">Ücretsiz</div>
+        <div class="badge-date">24 Nisan</div>
+        
+        <h2>Teknoloji Topluluğu Etkinliği</h2>
+        <p>
+            Bu örnek sayfada amaç; CSS position özelliklerini<br>
+            kullanarak tek bir duyuru kartı üzerinde relative, absolute,<br>
+            fixed, z-index, hover, cursor ve animasyon mantığını<br>
+            birlikte göstermektir.
+        </p>
+
+        <div class="circle-decor"></div>
+        <div class="location-box">Konum: Konferans Salonu</div>
+
+        <div class="badge-last">Son Kayıt</div>
+        
+    </div>
+
+    <footer>
+        2026 - LAB 5 Çalışması
+    </footer>
+
+    <button class="btn-help">Yardımcı Menü</button>
+
+</body>
+</html>
