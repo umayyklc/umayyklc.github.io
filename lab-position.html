@@ -165,6 +165,14 @@
             animation: bounce 1s infinite alternate; /* Etkileşim 2: Keyframes Animasyonu */
             cursor: pointer;
             z-index: 20;
+            /* BÜYÜME İÇİN EKLENEN SATIR: Geçişin yumuşak olması için */
+    transition: scale 0.2s ease; 
+}
+
+/* YENİ EKLENEN BLOK: Üzerine gelince büyüsün (zıplamayı bozmadan) */
+.badge-last:hover {
+    scale: 1.1; /* %10 oranında büyütür */
+}
         }
 
         /* Zıplama Animasyonu */
