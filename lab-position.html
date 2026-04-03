@@ -166,10 +166,6 @@
             cursor: pointer;
             z-index: 20;
         }
-        .badge-last:hover {
-    /* Büyümüş haliyle zıplamaya devam etmesini sağlayan yeni animasyon */
-    animation: bounce-hover 1s infinite alternate;
-}
 
         /* Zıplama Animasyonu */
         @keyframes bounce {
@@ -180,12 +176,6 @@
                 transform: translateY(-10px);
             }
         }
-        /* 2. Hover Zıplama Animasyonu (Hem %10 büyük hem zıplıyor) */
-@keyframes bounce-hover {
-    0% { transform: translateY(0) scale(1.1); }
-    100% { transform: translateY(-10px) scale(1.1); }
-}
-
         /* Alt Bilgi */
         footer {
             margin-top: 60px;
