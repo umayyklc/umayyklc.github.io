@@ -165,15 +165,11 @@
             animation: bounce 1s infinite alternate; /* Etkileşim 2: Keyframes Animasyonu */
             cursor: pointer;
             z-index: 20;
-            /* BÜYÜME İÇİN EKLENEN SATIR: Geçişin yumuşak olması için */
-    transition: scale 0.2s ease; 
-}
-
-/* YENİ EKLENEN BLOK: Üzerine gelince büyüsün (zıplamayı bozmadan) */
-.badge-last:hover {
-    scale: 1.1; /* %10 oranında büyütür */
-}
         }
+        .badge-last:hover {
+    /* Büyümüş haliyle zıplamaya devam etmesini sağlayan yeni animasyon */
+    animation: bounce-hover 1s infinite alternate;
+}
 
         /* Zıplama Animasyonu */
         @keyframes bounce {
@@ -184,6 +180,11 @@
                 transform: translateY(-10px);
             }
         }
+        /* 2. Hover Zıplama Animasyonu (Hem %10 büyük hem zıplıyor) */
+@keyframes bounce-hover {
+    0% { transform: translateY(0) scale(1.1); }
+    100% { transform: translateY(-10px) scale(1.1); }
+}
 
         /* Alt Bilgi */
         footer {
