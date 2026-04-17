@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Öğrenci Not Hesaplama</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 40px; line-height: 1.6; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: #007bff; text-decoration: none; font-weight: bold; }
+        .container { width: 450px; }
+        h2 { font-size: 22px; margin-bottom: 15px; }
+        input { width: 100%; padding: 10px; margin-bottom: 8px; border: 1px solid #999; border-radius: 2px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #efefef; border: 1px solid #bbb; cursor: pointer; margin-bottom: 20px; }
+        #result-box { background: #f2f2f2; padding: 20px; border-radius: 4px; display: none; }
+        .student-name { font-weight: bold; font-size: 18px; display: block; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<a href="index.html" class="back-btn">← Anasayfaya Dön</a>
+
+<div class="container">
+    <h2>Öğrenci Not Hesaplama</h2>
+    <input type="text" id="name" placeholder="Ad Soyad">
+    <input type="number" id="vize" placeholder="Vize Notu">
+    <input type="number" id="final" placeholder="Final Notu">
+    <button onclick="calculate()">Hesapla</button>
+
+    <div id="result-box">
+        <span id="resName" class="student-name"></span>
+        Ortalama: <span id="resOrt"></span><br>
+        Harf Notu: <span id="resHarf"></span><br>
+        Durum: <span id="resDurum"></span>
+    </div>
+</div>
+
+<script>
+function calculate() {
+    const name = document.getElementById('name').value;
+    const vize = parseFloat(document.getElementById('vize').value);
+    const final = parseFloat(document.getElementById('final').value);
+    
+    if(!name || isNaN(vize) || isNaN(final)) return alert("Eksik bilgi!");
+
+    const ort = (vize * 0.4) + (final * 0.6);
+    let harf = "FF";
+    if(ort >= 90) harf = "AA"; else if(ort >= 80) harf = "BA";
+    else if(ort >= 70) harf = "BB"; else if(ort >= 60) harf = "CB";
+    else if(ort >= 50) harf = "CC";
+
+    document.getElementById('resName').innerText = name;
+    document.getElementById('resOrt').innerText = ort.toFixed(2);
+    document.getElementById('resHarf').innerText = harf;
+    document.getElementById('resDurum').innerText = ort >= 50 ? "Geçti" : "Kaldı";
+    document.getElementById('result-box').style.display = 'block';
+}
+</script>
+</body>
+</html>
