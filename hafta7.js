@@ -1,58 +1,46 @@
-// Sayfa tamamen yüklendiğinde çalışmasını sağlarız
 document.addEventListener("DOMContentLoaded", function () {
     
-    // 1. Gerekli Elemanları Seçelim
+    // Elemanları Seçelim
     const btnTema = document.getElementById("btnTema");
     const kayitFormu = document.getElementById("kayitFormu");
     const ozetAlani = document.getElementById("ozetAlani");
+    const btnTemizle = document.getElementById("btnTemizle");
 
-    // 2. TEMA DEĞİŞTİRME (Etkileşim 1)
+    // 1. TEMA DEĞİŞTİRME (Mevcut özelliğin korunuyor)
     btnTema.addEventListener("click", function () {
-        // Body elementine 'bg-dark' ve 'text-white' sınıflarını ekler/çıkarır
         document.body.classList.toggle("bg-dark");
         document.body.classList.toggle("text-white");
         
-        // Butonun içindeki metni duruma göre değiştirelim (Opsiyonel ama şık durur)
         if (document.body.classList.contains("bg-dark")) {
             btnTema.textContent = "Aydınlık Moda Geç";
-            btnTema.classList.replace("btn-outline-light", "btn-outline-warning");
         } else {
             btnTema.textContent = "Karanlık Moda Geç";
-            btnTema.classList.replace("btn-outline-warning", "btn-outline-light");
         }
     });
 
-    // 3. FORM GÖNDERME VE ÖZET (Etkileşim 2)
+    // 2. FORM GÖNDERME
     kayitFormu.addEventListener("submit", function (event) {
-        event.preventDefault(); // Sayfanın yenilenmesini durdurur (Önemli!)
+        event.preventDefault(); // Sayfa yenilenmesini engeller
 
-        // Değerleri alalım
         const ad = document.getElementById("adSoyad").value;
         const eposta = document.getElementById("eposta").value;
 
-        // Basit bir kontrol (Bootstrap 'required' zaten yapar ama biz de görelim)
-        if (ad === "" || eposta === "") {
-            alert("Lütfen tüm alanları doldurun!");
-            return;
-        }
-
-        // Başarılı durumda Sonuç Alanı'na Bootstrap kartı basalım
+        // Özet alanını güncelle (Mavi kutuyu yeşil başarı kutusuna çevirir)
+        ozetAlani.classList.replace("alert-info", "alert-success");
         ozetAlani.innerHTML = `
-            <div class="col-md-6">
-                <div class="card border-success shadow">
-                    <div class="card-header bg-success text-white">
-                        Başvuru Başarılı!
-                    </div>
-                    <div class="card-body">
-                        <p><strong>Ad Soyad:</strong> ${ad}</p>
-                        <p><strong>E-posta:</strong> ${eposta}</p>
-                        <p class="text-muted small">Kaydınız sisteme başarıyla işlenmiştir.</p>
-                    </div>
-                </div>
+            <div class="text-start">
+                <h5 class="fw-bold border-bottom pb-2">Başvuru Özeti</h5>
+                <p class="mb-1"><strong>Ad Soyad:</strong> ${ad}</p>
+                <p class="mb-0"><strong>E-posta:</strong> ${eposta}</p>
+                <p class="mt-2 mb-0 small text-muted text-center">Kaydınız başarıyla oluşturuldu.</p>
             </div>
         `;
+    });
 
-        // Formu temizleyelim
-        kayitFormu.reset();
+    // 3. FORMU TEMİZLE (Yeni özellik)
+    btnTemizle.addEventListener("click", function () {
+        kayitFormu.reset(); // Kutuları boşaltır
+        ozetAlani.classList.replace("alert-success", "alert-info"); // Yeşili tekrar maviye çevirir
+        ozetAlani.innerHTML = "Henüz bir başvuru yapılmadı. Sonuçlar burada görünecek.";
     });
 });
