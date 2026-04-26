@@ -35,16 +35,22 @@ document.addEventListener("DOMContentLoaded", function () {
         const eposta = document.getElementById("eposta").value;
         const bolum = document.getElementById("bolum").value;
         const sinif = document.getElementById("sinif").value;
-
+        // Katılım türünü buradan çekiyoruz:
+        const katilim = document.getElementById("katilimTuru").value;
 
         // Mavi kutuyu yeşil özet kutusuna çeviriyoruz
         ozetAlani.classList.remove("alert-info");
         ozetAlani.classList.add("alert-success");
+
+        // Özet alanına katılım bilgisini de ekliyoruz:
         ozetAlani.innerHTML = `
             <div class="text-start">
                 <h5 class="fw-bold border-bottom pb-2">✅ Başvuru Özeti</h5>
                 <p class="mb-1"><strong>Ad Soyad:</strong> ${ad}</p>
-                <p class="mb-0"><strong>E-posta:</strong> ${eposta}</p>
+                <p class="mb-1"><strong>E-posta:</strong> ${eposta}</p>
+                <p class="mb-1"><strong>Bölüm:</strong> ${bolum}</p>
+                <p class="mb-1"><strong>Sınıf:</strong> ${sinif}</p>
+                <p class="mb-1"><strong>Katılım Türü:</strong> ${katilim}</p>
                 <p class="mt-3 mb-0 small text-muted text-center italic">Form verileri başarıyla işlendi.</p>
             </div>
         `;
