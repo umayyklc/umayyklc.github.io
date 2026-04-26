@@ -33,6 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const ad = document.getElementById("adSoyad").value;
         const eposta = document.getElementById("eposta").value;
+        const bolum = document.getElementById("bolum").value;
+        const sinif = document.getElementById("sinif").value;
+
 
         // Mavi kutuyu yeşil özet kutusuna çeviriyoruz
         ozetAlani.classList.remove("alert-info");
