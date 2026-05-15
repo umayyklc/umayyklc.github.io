@@ -2,42 +2,186 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Ana Sayfa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Temel Ödevi - Emine Umay Kılıç</title>
+    <style>
+        /* Genel Sayfa Düzeni */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f5f7;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Header ve Navigasyon */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #f8f9fc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        h1 { margin: 0; font-size: 1.5rem; color: #4a5568; }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a5568;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover { background-color: #edf2f7; }
+
+        .active-link {
+            background-color: #7c92d3 !important;
+            color: white !important;
+        }
+
+        /* Üst Açıklama Kısmı */
+        .intro-text {
+            padding: 30px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Ana İçerik Alanı (Kutular) */
+        main {
+            display: flex;
+            padding: 0 30px 30px 30px;
+            gap: 20px;
+        }
+
+        .box {
+            flex: 1;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+        }
+
+        .content-box {
+            background-color: #fff8e1;
+            border-color: #ffe082;
+        }
+
+        .sidebar-box {
+            background-color: #e3f2fd;
+            border-color: #bbdefb;
+        }
+
+        .box h2 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 10px;
+        }
+
+        /* Metin Düzenlemeleri (İstenen 3 Farklı Özellik) */
+        .p-style-1 {
+            font-size: 15px;
+            color: #2c3e50;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .p-style-2 {
+            font-size: 14px;
+            color: #e67e22;
+            line-height: 1.5;
+            text-align: left;
+            font-style: italic;
+        }
+
+        .p-style-3 {
+            font-size: 16px;
+            color: #2980b9;
+            line-height: 1.4;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fc;
+            border-top: 1px solid #e2e8f0;
+            font-size: 13px;
+            color: #888;
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <h1>Emine Umay Kılıç</h1>
-    <p>Web Programlama Öğrencisi</p>
-</header>
+<div class="container">
+    <header>
+        <h1>CSS Temel Ödevi</h1>
+        <nav>
+            <a href="index.html" class="active-link">Ana Sayfa</a>
+            <a href="about.html">Hakkımda</a>
+            <a href="interests.html">İlgi Alanlarım</a>
+            <a href="contact.html">İletişim</a>
+            <a href="CSShomework.html">CSS Ödevi</a>
+            <a href="lab-position.html">Lab 5</a>
+            <a href="flexbox.html" style="background-color: #ff9800; color: white;">Flexbox Ödevi</a>
+            <a href="not_hesaplama.html">Not Hesaplama</a>
+            <a href="birim_donusturucu.html">Birim Dönüştürücü</a>
+            <a href="hafta7.html" style="background-color: #4CAF50; color: white;">Hafta 7 (Bootstrap)</a>
+        </nav>
+    </header>
 
-<nav>
-    <a href="index.html">Ana Sayfa</a> |
-    <a href="about.html">Hakkımda</a> |
-    <a href="interests.html">İlgi Alanlarım</a> |
-    <a href="contact.html">İletişim</a>
-    <a href="CSShomework.html">CSS Ödevi</a>
-    <a href="lab-position.html">Lab 5'e Git</a>
-    <a href="flexbox.html" style="background-color: #ff9800;">Flexbox Ödevi</a>
-    <a href="not_hesaplama.html">Nothesaplama</a>
-    <a href="birim_donusturucu.html">birim dönüştürücü</a>
-    <a href="hafta7.html" style="background-color: #4CAF50; color: white; padding: 2px 5px; text-decoration: none; border-radius: 3px;">Hafta 7 (Bootstrap)</a>
-</nav>
+    <div class="intro-text">
+        <p>Verilen benzer bir düzenle basit bir web sayfası oluşturun. CSS'in temel özelliklerini (display, width, height, margin, padding, border, selector) uygulayın. Sadece HTML5 + CSS3 kullanın.</p>
+    </div>
 
-<main>
-    <p>Hoş geldiniz. Bu benim kişisel tanıtım sayfamdır.</p>
+    <main>
+        <section class="box content-box">
+            <h2>İçerik</h2>
+            <p class="p-style-1">
+                Bu alanda örnek içerik metinleri bulunmaktadır. CSS özellikleriyle bu metinler arasında <b>line-height</b> ve <b>text-align</b> düzenlemeleri yaptık. 
+            </p>
+            <p class="p-style-2">
+                Ayrıca metinlerin font boyutlarını ve renklerini (color) değiştirerek hiyerarşik bir yapı oluşturduk. Bu kutu sarı tonlarında bir arka plana sahiptir.
+            </p>
+        </section>
 
-    <h2>Hızlı Bağlantılar</h2>
-    <a href="#hedef">Hedeflerime Git</a>
+        <aside class="box sidebar-box">
+            <h2>Yan Menü / Bilgi</h2>
+            <p class="p-style-3">
+                Bu alan yan menü veya bilgi kısmıdır. Genişlik, yükseklik ve kenar boşlukları burada aktif olarak kullanılmıştır.
+            </p>
+            <p class="p-style-1">
+                Mavi tonlarındaki bu kutu, CSS Flexbox yapısı sayesinde yanındaki içerik kutusuyla aynı hizada ve esnek bir yapıda durmaktadır.
+            </p>
+        </aside>
+    </main>
 
-    <h2 id="hedef">Hedeflerim</h2>
-    <p>Web programlama alanında kendimi geliştirmek istiyorum.</p>
-</main>
-
-<footer>
-    <p>© 2026 Emine Umay Kılıç</p>
-</footer>
+    <footer>
+        <p>© 2026 Emine Umay Kılıç. Bu sayfa basit bir HTML+CSS alıştırmasıdır.</p>
+    </footer>
+</div>
 
 </body>
-
 </html>
