@@ -5,34 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ana Sayfa</title>
     <style>
-        /* Genel Gövde Düzeni */
+        /* Genel Stil */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            background-color: #f4f7f6;
+            background-color: #f0f2f5;
             color: #333;
             margin: 0;
             padding: 0;
         }
 
-        /* Header Tasarımı */
+        /* Header */
         header {
             background-color: #2c3e50;
             color: white;
-            padding: 40px 20px;
+            padding: 30px 20px;
             text-align: center;
-            border-bottom: 4px solid #3498db;
         }
 
-        header h1 { margin: 0; font-size: 2.5rem; }
-        header p { margin: 10px 0 0; opacity: 0.9; }
+        header h1 { margin: 0; font-size: 2.2rem; }
 
         /* Navigasyon (Tüm butonlar korundu) */
         nav {
             background-color: #fff;
             padding: 15px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -40,85 +38,79 @@
 
         nav a {
             text-decoration: none;
-            color: #2c3e50;
+            color: #34495e;
             font-weight: 600;
-            padding: 8px 12px;
+            padding: 8px 15px;
             margin: 5px;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
+            border-radius: 5px;
+            transition: background 0.3s;
         }
 
-        nav a:hover {
-            color: #3498db;
-            border-bottom: 2px solid #3498db;
-        }
+        nav a:hover { background-color: #ecf0f1; }
 
-        /* Ana İçerik Alanı - Flexbox */
-        main {
-            max-width: 1000px;
+        /* Ana İçerik Kaplayıcı */
+        .container {
+            max-width: 900px;
             margin: 30px auto;
-            padding: 20px;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        .content-section {
-            flex: 2; /* Ana içerik daha geniş */
-            min-width: 300px;
+        /* Metin Düzenlemeleri (Ödev Gereksinimleri) */
+        .p-main {
+            font-size: 18px;            /* Özellik 1 */
+            color: #2c3e50;             /* Özellik 2 */
+            line-height: 1.8;           /* Özellik 3 */
+            text-align: justify;        /* Özellik 4 */
+            margin-bottom: 20px;
         }
 
-        .info-section {
-            flex: 1; /* Yan bilgi alanı daha dar */
-            min-width: 250px;
-            background: #fdfdfd;
-            border-left: 1px solid #eee;
-            padding-left: 20px;
-        }
-
-        /* Ödev Gereksinimi: Metin Düzenleme Sınıfları */
-        .text-style-1 {
-            font-size: 17px;         /* Özellik 1 */
-            color: #2980b9;          /* Özellik 2 */
-            line-height: 1.8;        /* Özellik 3 */
-            text-align: justify;     /* Özellik 4 */
-            margin-bottom: 15px;
-        }
-
-        .text-style-2 {
-            font-size: 14px;
+        .p-sub {
+            font-size: 15px;
             color: #7f8c8d;
-            line-height: 1.5;
+            line-height: 1.4;
             text-align: left;
             font-style: italic;
         }
 
-        .text-style-highlight {
-            font-size: 16px;
-            color: #e67e22;
-            line-height: 1.4;
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 10px;
+        /* Faydalı Bağlantılar Bölümü */
+        .useful-links {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
         }
 
-        /* Footer Tasarımı */
+        .useful-links h2 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .link-list {
+            list-style-type: disc;
+            margin-left: 25px;
+        }
+
+        .link-list li { margin-bottom: 8px; }
+
+        .link-list a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .link-list a:hover { text-decoration: underline; }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
-            background: #2c3e50;
-            color: white;
-            margin-top: 40px;
-        }
-
-        /* Kimlik Belirleyici Bağlantı */
-        #hedef {
-            padding-top: 20px;
-            color: #c0392b;
+            padding: 30px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -136,38 +128,35 @@
     <a href="contact.html">İletişim</a>
     <a href="CSShomework.html">CSS Ödevi</a>
     <a href="lab-position.html">Lab 5'e Git</a>
-    <a href="flexbox.html" style="background-color: #ff9800; color: white; border-radius: 4px;">Flexbox Ödevi</a>
+    <a href="flexbox.html" style="background-color: #ff9800; color: white;">Flexbox Ödevi</a>
     <a href="not_hesaplama.html">Nothesaplama</a>
     <a href="birim_donusturucu.html">birim dönüştürücü</a>
-    <a href="hafta7.html" style="background-color: #4CAF50; color: white; padding: 2px 8px; text-decoration: none; border-radius: 3px;">Hafta 7 (Bootstrap)</a>
+    <a href="hafta7.html" style="background-color: #4CAF50; color: white;">Hafta 7 (Bootstrap)</a>
 </nav>
 
-<main>
-    <div class="content-section">
-        <p class="text-style-1">Hoş geldiniz. Bu benim kişisel tanıtım sayfamdır. Bu alanda CSS'in temel prensiplerini kullanarak modern bir arayüz oluşturmayı hedefledim.</p>
-        
-        <p class="text-style-2">Proje boyunca tipografi ve yerleşim düzeni üzerine odaklanarak, kullanıcı deneyimini iyileştirmeye yönelik çalışmalar gerçekleştirdim.</p>
+<div class="container">
+    <main>
+        <p class="p-main">Hoş geldiniz. Bu benim kişisel tanıtım sayfamdır. Burada web geliştirme yolculuğumda öğrendiğim teknikleri ve projelerimi paylaşıyorum.</p>
+        <p class="p-sub">Bu tasarım, saf HTML ve CSS kullanılarak responsive (duyarlı) bir yapıda hazırlanmıştır.</p>
 
-        <h2>Hızlı Bağlantılar</h2>
-        <a href="#hedef" style="color: #3498db; text-decoration: none; font-weight: bold;">→ Hedeflerime Git</a>
+        <h2 id="hedef" style="margin-top: 30px;">Hedeflerim</h2>
+        <p class="p-main">Bilgisayar mühendisliği eğitimim süresince modern web teknolojilerinde uzmanlaşarak, performanslı ve kullanıcı odaklı sistemler geliştirmeyi hedefliyorum.</p>
+        <p class="p-sub">Sürekli öğrenme prensibiyle yeni nesil frameworkler üzerine çalışmalarım devam etmektedir.</p>
 
-        <h2 id="hedef">Hedeflerim</h2>
-        <p class="text-style-1">Web programlama alanında kendimi geliştirerek, kullanıcı dostu ve erişilebilir dijital çözümler üretmek istiyorum.</p>
-        <p class="text-style-2">Özellikle modern frameworkler ve responsive tasarım konularında derinleşmeyi amaçlıyorum.</p>
-    </div>
-
-    <aside class="info-section">
-        <h2>Bilgi Kutusu</h2>
-        <p class="text-style-highlight">Teknik Detaylar</p>
-        <p class="text-style-2">Bu sayfa tamamen saf HTML5 ve CSS3 standartları kullanılarak, hiçbir dış kütüphane yardımı almadan tasarlanmıştır.</p>
-        
-        <p class="text-style-highlight">Gelişim Süreci</p>
-        <p class="text-style-2">Öğrendiğim her yeni CSS özelliği, projelerimin daha modüler ve yönetilebilir olmasını sağlıyor.</p>
-    </aside>
-</main>
+        <section class="useful-links">
+            <h2>Faydalı Bağlantılar</h2>
+            <p>Aşağıdaki kaynaklar web geliştirme öğrenirken faydalı olabilir:</p>
+            <ul class="link-list">
+                <li><a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a></li>
+                <li><a href="https://www.w3schools.com" target="_blank">W3Schools</a></li>
+                <li><a href="https://github.com" target="_blank">GitHub</a></li>
+            </ul>
+        </section>
+    </main>
+</div>
 
 <footer>
-    <p>© 2026 Emine Umay Kılıç</p>
+    <p>© 2026 Emine Umay Kılıç | Web Programlama Dersi</p>
 </footer>
 
 </body>
